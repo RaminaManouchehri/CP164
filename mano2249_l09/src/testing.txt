@@ -1,0 +1,383 @@
+-------------------------------------------------------
+"""
+-------------------------------------------------------
+Lab Testing
+-------------------------------------------------------
+Author:  Ramina Manouchehri
+ID:      169042249
+Email:   mano2249@mylaurier.ca
+Version: 2023-03-25
+-------------------------------------------------------
+"""
+-------------------------------------------------------
+t01
+-------------------------------------------------------
+Hash     Slot Key
+-------- ---- --------------------
+  3952108    6 Dellamorte Dellamore, 1994
+  1652346    3 Dark City, 1998
+   848448    6 Zulu, 1964
+  1810314    2 I Am Legend, 2007
+  2306070    4 Omega Man, The, 1971
+  3609832    2 Last Man On Earth, The, 1964
+  2016090    6 Alphaville, 1965
+  1722006    6 Stardust, 2007
+   826884    2 Juno, 2007
+  4258854    5 Darjeeling Limited, The, 2007
+  2764895    0 Broken Flowers, 2005
+  5498037    6 Star Wars: Episode IV - A New Hope, 1977
+  3158254    1 Horror of Dracula, 1958
+  4277377    6 Jason and the Argonauts, 1963
+  2396554    6 Wrong Box, The, 1966
+  2316384    0 Finding Dory, 2016
+  4081416    3 Manos: The Hands of Fate, 1966
+ 14700540    1 Incredibly Strange Creatures Who Stopped Living and Became Mixed-Up Zombies!!?, The, 1964
+   177210    5 Z, 1969
+  2357873    0 Wonder Woman, 2017
+   869616    6 Zulu, 2013
+-------------------------------------------------------
+t02
+-------------------------------------------------------
+55
+-------------------------------------------------------
+t03
+-------------------------------------------------------
+7 slots
+
+----------------------------------------
+Slot 0
+
+Title:    Wonder Woman
+Year:     2017
+Director: Patty Jenkins
+Rating:   8.1
+Genres:   fantasy, action
+
+Title:    Finding Dory
+Year:     2016
+Director: Andrew Stanton, Angus MacLane
+Rating:   7.5
+Genres:   comedy
+
+Title:    Broken Flowers
+Year:     2005
+Director: Jim Jarmusch
+Rating:   7.2
+Genres:   romance, comedy
+
+----------------------------------------
+Slot 1
+
+Title:    Incredibly Strange Creatures Who Stopped Living and Became Mixed-Up Zombies!!?, The
+Year:     1964
+Director: Ray Dennis Steckler
+Rating:   2.2
+Genres:   horror
+
+Title:    Horror of Dracula
+Year:     1958
+Director: Terence Fisher
+Rating:   7.4
+Genres:   horror
+
+----------------------------------------
+Slot 2
+
+Title:    Juno
+Year:     2007
+Director: Jason Reitman
+Rating:   7.7
+Genres:   romance, comedy
+
+Title:    Last Man On Earth, The
+Year:     1964
+Director: Ubaldo Ragona
+Rating:   6.9
+Genres:   science fiction
+
+Title:    I Am Legend
+Year:     2007
+Director: Francis Lawrence
+Rating:   7.1
+Genres:   science fiction, action
+
+----------------------------------------
+Slot 3
+
+Title:    Manos: The Hands of Fate
+Year:     1966
+Director: Harold P. Warren
+Rating:   1.9
+Genres:   horror
+
+Title:    Dark City
+Year:     1998
+Director: Alex Proyas
+Rating:   7.8
+Genres:   science fiction
+
+----------------------------------------
+Slot 4
+
+Title:    Omega Man, The
+Year:     1971
+Director: Boris Sagal
+Rating:   6.6
+Genres:   science fiction, action
+
+----------------------------------------
+Slot 5
+
+Title:    Z
+Year:     1969
+Director: Costa-Gavras
+Rating:   8.2
+Genres:   drama
+
+Title:    Darjeeling Limited, The
+Year:     2007
+Director: Wes Anderson
+Rating:   7.1
+Genres:   comedy
+
+----------------------------------------
+Slot 6
+
+Title:    Zulu
+Year:     2013
+Director: Jerome Salle
+Rating:   6.7
+Genres:   drama
+
+Title:    Wrong Box, The
+Year:     1966
+Director: Bryan Forbes
+Rating:   7.0
+Genres:   comedy
+
+Title:    Jason and the Argonauts
+Year:     1963
+Director: Don Chaffey
+Rating:   7.4
+Genres:   fantasy, action
+
+Title:    Star Wars: Episode IV - A New Hope
+Year:     1977
+Director: George Lucas
+Rating:   8.7
+Genres:   science fiction, action
+
+Title:    Stardust
+Year:     2007
+Director: Matthew Vaughn
+Rating:   7.7
+Genres:   fantasy, comedy
+
+Title:    Alphaville
+Year:     1965
+Director: Jean-Luc Godard
+Rating:   7.1
+Genres:   science fiction, comedy
+
+Title:    Zulu
+Year:     1964
+Director: Cy Endfield
+Rating:   7.8
+Genres:   war
+
+Title:    Dellamorte Dellamore
+Year:     1994
+Director: Michele Soavi
+Rating:   7.2
+Genres:   romance, comedy, zombie, horror
+-------------------------------------------------------
+t04
+-------------------------------------------------------
+7 slots
+
+----------------------------------------
+Slot 0
+
+28
+
+21
+
+14
+
+7
+
+0
+
+----------------------------------------
+Slot 1
+
+29
+
+22
+
+15
+
+8
+
+1
+
+----------------------------------------
+Slot 2
+
+30
+
+23
+
+16
+
+9
+
+2
+
+----------------------------------------
+Slot 3
+
+31
+
+24
+
+17
+
+10
+
+3
+
+----------------------------------------
+Slot 4
+
+32
+
+25
+
+18
+
+11
+
+4
+
+----------------------------------------
+Slot 5
+
+33
+
+26
+
+19
+
+12
+
+5
+
+----------------------------------------
+Slot 6
+
+34
+
+27
+
+20
+
+13
+
+6
+
+
+REHASH
+7 slots
+
+----------------------------------------
+Slot 0
+
+28
+
+21
+
+14
+
+7
+
+0
+
+----------------------------------------
+Slot 1
+
+29
+
+22
+
+15
+
+8
+
+1
+
+----------------------------------------
+Slot 2
+
+30
+
+23
+
+16
+
+9
+
+2
+
+----------------------------------------
+Slot 3
+
+31
+
+24
+
+17
+
+10
+
+3
+
+----------------------------------------
+Slot 4
+
+32
+
+25
+
+18
+
+11
+
+4
+
+----------------------------------------
+Slot 5
+
+33
+
+26
+
+19
+
+12
+
+5
+
+----------------------------------------
+Slot 6
+
+34
+
+27
+
+20
+
+13
+
+6
+-------------------------------------------------------

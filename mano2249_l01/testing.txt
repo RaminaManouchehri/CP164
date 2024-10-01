@@ -1,0 +1,104 @@
+"""
+-------------------------------------------------------
+Lab Testing
+-------------------------------------------------------
+Author:  Ramina Manouchehri
+ID:      169042249
+Email:   mano2249@mylaurier.ca
+Version: 2023-01-21
+-------------------------------------------------------
+"""
+-------------------------------------------------------
+t01
+-------------------------------------------------------
+romance, comedy, zombie, horror
+-------------------------------------------------------
+t02
+-------------------------------------------------------
+3,4,5,8
+-------------------------------------------------------
+t03
+-------------------------------------------------------
+Genres
+ 0 science fiction
+ 1 fantasy
+ 2 drama
+ 3 romance
+ 4 comedy
+ 5 zombie
+ 6 action
+ 7 historical
+ 8 horror
+ 9 war
+10 mystery
+-------------------------------------------------------
+t04
+-------------------------------------------------------
+Genres
+ 0 science fiction
+ 1 fantasy
+ 2 drama
+ 3 romance
+ 4 comedy
+ 5 zombie
+ 6 action
+ 7 historical
+ 8 horror
+ 9 war
+10 mystery
+
+Enter a genre number (ENTER to quit): 
+Error: must have at least one genre
+Enter a genre number (ENTER to quit): Schwarzenegger
+Error: not a positive number
+Enter a genre number (ENTER to quit): 0
+Enter a genre number (ENTER to quit): 0
+Error: genre already chosen
+Enter a genre number (ENTER to quit): 11
+Error: input must be <= 10
+Enter a genre number (ENTER to quit): 1
+Enter a genre number (ENTER to quit): 
+[0, 1]
+-------------------------------------------------------
+t05
+-------------------------------------------------------
+Title: Dellamorte Dellamore
+Year of release: 1994
+Director: Michele Soavi
+Rating: 7.2
+Genres
+ 0 science fiction
+ 1 fantasy
+ 2 drama
+ 3 romance
+ 4 comedy
+ 5 zombie
+ 6 action
+ 7 historical
+ 8 horror
+ 9 war
+10 mystery
+
+Enter a genre number (ENTER to quit): 3
+Enter a genre number (ENTER to quit): 4
+Enter a genre number (ENTER to quit): 5
+Enter a genre number (ENTER to quit): 8
+Enter a genre number (ENTER to quit): 
+Title:    Dellamorte Dellamore
+Year:     1994
+Director: Michele Soavi
+Rating:   7.2
+Genres:   romance, comedy, zombie, horror
+-------------------------------------------------------
+t06
+-------------------------------------------------------
+Title:    Dellamorte Dellamore
+Year:     1994
+Director: Michele Soavi
+Rating:   7.2
+Genres:   romance, comedy, zombie, horror
+-------------------------------------------------------
+t07
+-------------------------------------------------------
+['Dellamorte Dellamore|1994|Michele Soavi|7.2|3,4,5,8\n', 'Dark City|1998|Alex Proyas|7.8|0\n', 'Zulu|1964|Cy Endfield|7.8|9\n', 'I Am Legend|2007|Francis Lawrence|7.1|0,6\n', 'Omega Man, The|1971|Boris Sagal|6.6|0,6\n', 'Last Man On Earth, The|1964|Ubaldo Ragona|6.9|0\n', 'Alphaville|1965|Jean-Luc Godard|7.1|0,4\n', 'Stardust|2007|Matthew Vaughn|7.7|1,4\n', 'Juno|2007|Jason Reitman|7.7|3,4\n', 'Darjeeling Limited, The|2007|Wes Anderson|7.1|4\n', 'Broken Flowers|2005|Jim Jarmusch|7.2|3,4\n', 'Star Wars: Episode IV - A New Hope|1977|George Lucas|8.7|0,6\n', 'Horror of Dracula|1958|Terence Fisher|7.4|8\n', 'Jason and the Argonauts|1963|Don Chaffey|7.4|1,6\n', 'Wrong Box, The|1966|Bryan Forbes|7.0|4\n', 'Finding Dory|2016|Andrew Stanton, Angus MacLane|7.5|4\n', 'Manos: The Hands of Fate|1966|Harold P. Warren|1.9|8\n', 'Incredibly Strange Creatures Who Stopped Living and Became Mixed-Up Zombies!!?, The|1964|Ray Dennis Steckler|2.2|8\n', 'Z|1969|Costa-Gavras|8.2|2\n', 'Wonder Woman|2017|Patty Jenkins|8.1|1,6\n', 'Zulu|2013|Jerome Salle|6.7|2\n']
+-------------------------------------------------------

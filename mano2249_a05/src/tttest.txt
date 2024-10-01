@@ -1,0 +1,399 @@
+
+from copy import deepcopy
+
+"""
+The PyDev module 'test_Set.py' contains a few sample tests for some of the Set
+methods. The method 'print_set' is a testing method that shows you the complete
+contents of a Set object in human-readable form and can also be used for testing.
+"""
+
+
+class Set:
+    """
+    -------------------------------------------------------
+    Data structure that contains a set of unique values,
+        i.e. no values are repeated in a Set.
+    Values stored in fixed-length Python list like in the Circular Queue.
+        Do not use Python list methods that change the length of the list:
+            append, insert, remove, pop, extend, delete
+    Empty slots contain None.
+    -------------------------------------------------------
+    Examples of Set attributes:
+        _values = [None, None, None, None], _max_size = 4, _count = 0, _slot = 0
+        _values = [1, None, 9, None],       _max_size = 4, _count = 2, _slot = 1
+        _values = [1, None, 9, 3],          _max_size = 4, _count = 3, _slot = 1
+        _values = [1, 4, None, 3],          _max_size = 4, _count = 3, _slot = 2
+        _values = [1, 4, 9, 3],             _max_size = 4, _count = 4, _slot = None
+    -------------------------------------------------------
+    """
+    # Default maximum size when max_size parameter is not provided
+    DEFAULT_SIZE = 10
+
+    def __init__(self, max_size=DEFAULT_SIZE):
+        """
+        -------------------------------------------------------
+        Efficiency: O(1)
+        -------------------------------------------------------
+        Initializes an empty Set.
+        Use: target = Set(max_size)
+        Use: target = Set()  # uses DEFAULT_SIZE
+        -------------------------------------------------------
+        Parameters:
+            max_size - maximum size of the set (int > 0)
+        Returns​‌‌‌​​​‌‌:
+            a new Set object (Set)
+        -------------------------------------------------------
+        """
+        # Maximum size of Python list to store data.
+        self._max_size = max_size
+        # Python list that stores data - initialized to list of None.
+        self._values = [None] * self._max_size
+        # First available index for adding values -set to None if Set is full.
+        self._slot = 0
+        # Number of unique values in Set. Cannot exceed _max_size.
+        self._count = 0
+
+    def is_empty(self):
+        """
+        -------------------------------------------------------
+        Efficiency: O(1)
+        -------------------------------------------------------
+        Determines if the set is empty. In an empty set, all slots
+        in _values contain None.
+        Use: empty = source.is_empty()
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            True if the set is empty, False otherwise.
+        -------------------------------------------------------
+        """
+        if self._count == 0:
+            empty = True
+        else:
+            empty = False
+        return empty
+
+    def is_full(self):
+        """
+        -------------------------------------------------------
+        Efficiency: O(1)
+        -------------------------------------------------------
+        Determines if the set is full. In a full set, no slot
+        in _values is None.
+        Use: full = source.is_full()
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            True if the set is full, False otherwise.
+        -------------------------------------------------------
+        """
+
+        if self._count == self._max_size:
+            full = True
+        else:
+            full = False
+        return full
+
+    def __len__(self):
+        """
+        -------------------------------------------------------
+        Efficiency: O(1)
+        -------------------------------------------------------
+        Returns the number of non-None values in the set.
+        Use: n = len(source)
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            the number of values in the set.
+        -------------------------------------------------------
+        """
+
+        n = self._count
+        return n
+
+    def _linear_search(self, key):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Searches for the occurrence of key in the set. Skips over None entries.
+        (Private helper method - used only by other ADT methods.)
+        Use: i = self._linear_search(key)
+        -------------------------------------------------------
+        Parameters:
+            key - a partial data element (?)
+        Returns:
+            i - the index of key in the set, -1 if key is not found (int)
+        -------------------------------------------------------
+        """
+
+        a = 0
+        i = -1
+        while a < len(self._values) and i != a:
+            if self._values[a] == key:
+                i = a
+            a = a + 1
+        return i
+
+    def _set_slot(self):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Sets the value of _slot, the index of the first location of None
+        in _values.
+        (Private helper method - used only by other ADT methods.)
+        Use: self._set_slot()
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            None
+        -------------------------------------------------------
+        """
+
+        i = 0
+        changed = False
+        while i < len(self._values) and changed is not True:
+            if self._values[i] is None:
+                self._slot = i
+                changed = True
+            i = i + 1
+        return
+
+    def insert(self, value):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Adds value to the set at index _slot.
+        Use: inserted = source.insert(value)
+        -------------------------------------------------------
+        Parameters:
+            value - a data element (?)
+        Returns:
+            inserted - True if value was added to source, False otherwise.
+                value is added only if value is unique in the set (boolean)
+        -------------------------------------------------------
+        """
+        assert self._slot is not None, "Cannot add to a full set"
+        i = self._linear_search(value)
+        if i == -1:
+            self._values[self._slot] = value
+            inserted = True
+            self._count = self._count + 1
+            self._set_slot()
+        else:
+            inserted = False
+
+        return inserted
+
+    def delete(self, key):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Finds, removes, and returns the value in the set that matches key.
+        Updates _slot.
+        Use: value = source.delete(key)
+        -------------------------------------------------------
+        Parameters:
+            key - a partial data element (?)
+        Returns​‌‌‌​​​‌‌:
+            value - the full value matching key, otherwise None (?)
+        -------------------------------------------------------
+        """
+        i = self._linear_search(key)
+        if i != -1:
+            value = self._values[i]
+            value = deepcopy(value)
+            self._values[i] = None
+            self._set_slot()
+            self._count = self._count - 1
+
+        else:
+            value = None
+        return value
+
+    def find(self, key):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Finds and returns a copy of value in the set that matches key.
+        Use: value = source.find(key)
+        -------------------------------------------------------
+        Parameters:
+            key - a partial data element (?)
+        Returns​‌‌‌​​​‌‌:
+            value - a copy of the full value matching key, otherwise None (?)
+        -------------------------------------------------------
+        """
+        i = self._linear_search(key)
+        if i != -1:
+            value = self._values[i]
+            value = deepcopy(value)
+        else:
+            value = None
+        return value
+
+    def __contains__(self, key):
+        """
+        -------------------------------------------------------
+        Efficiency: 
+        ---------------------------------------------------------
+        Determines if the set contains a value matching key.
+        Use: b = key in source
+        -------------------------------------------------------
+        Parameters:
+            key - a partial data element (?)
+        Returns​‌‌‌​​​‌‌:
+            True if the set contains key, False otherwise. (boolean)
+        -------------------------------------------------------
+        """
+        i = self._linear_search(key)
+        if i == -1:
+            contains = False
+        else:
+            contains = True
+        return contains
+
+    def maximum(self):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Returns a copy of the maximum value in the set.
+        Use: value = source.maximum()
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            value - a copy of the maximum value in source (?)
+        -------------------------------------------------------
+        """
+        assert self._count > 0, "Cannot find maximum of an empty set"
+
+        value = self._values[0]
+        for i in range(len(self._values)):
+            if self._values[i] > value:
+                value = self._values[i]
+        value = deepcopy(value)
+        return value
+
+    def minimum(self):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n)
+        -------------------------------------------------------
+        Returns a copy of the minimum value in the set.
+        Use: value = source.minimum()
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            value - a copy of the minimum value in source (?)
+        -------------------------------------------------------
+        """
+        assert self._count > 0, "Cannot find minimum of an empty set"
+
+        value = self._values[0]
+        for i in range(len(self._values)):
+            if self._values[i] < value:
+                value = self._values[i]
+        value = deepcopy(value)
+        return value
+
+    def intersection(self, source):
+        """
+        -------------------------------------------------------
+        Efficiency: O(n^2)
+        -------------------------------------------------------
+        Returns a new set with only the values that appear in both
+        self and source.
+        Maximum size of target Set is the smaller of the maximum sizes of
+            self and source.
+        Use: target = self.intersection(source)
+        -------------------------------------------------------
+        Parameters:
+            source - a set (Set)
+        Returns​‌‌‌​​​‌‌:
+            target - a set containing one copy of all the values
+                that appear in both self and source (Set)
+        -------------------------------------------------------
+        Examples:
+            (1,2,3) intersection (3,2,1) is (1,2,3)
+            (1,2,3) intersection (4,5,6) is ()
+            (1,2,3,4,5,6) intersection (0,2,4,6,8) is (2,4,6)
+        -------------------------------------------------------
+        """
+        target = Set()
+        for i in range(len(self._values)):
+            for j in range(len(source._values)):
+                if self._values[i] == source._values[j]:
+                    target._values[self._slot] = source._values[j]
+                    self._set_slot()
+                    self._count = self._count + 1
+        return target
+
+    def difference(self, source):
+        """
+        -------------------------------------------------------
+        Efficiency: 
+        -------------------------------------------------------
+        Return a set that contains the items that only exist in
+        self and not in source.
+        Maximum size of target Set is the maximum size of self.
+        Use: target = self.difference(source)
+        -------------------------------------------------------
+        Parameters:
+            source - a set (Set)
+        Returns:
+            target - a set containing one copy of all the values
+                in self that are not in source (Set)
+        -------------------------------------------------------
+        Examples:
+            (1,2,3) difference (3,2,1) is ()
+            (1,2,3) difference (4,5,6) is (1,2,3)
+            (1,2,3,4,5,6) difference (0,2,4,6,8) is (1,3,5)
+        -------------------------------------------------------
+        """
+        target = Set()
+        for i in range(len(self._values)):
+            equals = False
+            for j in range(len(source._values)):
+                if self._values[i] == source._values[j]:
+                    equals = True
+            if equals is False:
+                target._values[target._slot] = self._values[i]
+                target._set_slot()
+                target._count = target._count + 1
+        return target
+
+    def print_set(self):
+        """
+        -------------------------------------------------------
+        USE FOR TESTING ONLY
+        -------------------------------------------------------
+        Prints the contents of a Set in human readable format.
+        Use: source.print_set()
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            None
+        -------------------------------------------------------
+        """
+        print("_values:   {}".format(self._values))
+        print("_max_size: {:2d}".format(self._max_size))
+        print("_count:    {:2d}".format(self._count))
+        print("_slot:     {:2d}".format(self._slot))
+        print("----------")
+        return
+
+    def __iter__(self):
+        """
+        -------------------------------------------------------
+        USE FOR TESTING ONLY
+        -------------------------------------------------------
+        Generates a Python iterator. Iterates through the set
+        from left to right.
+        Use: for v in source:
+        -------------------------------------------------------
+        Returns​‌‌‌​​​‌‌:
+            value - the next value in the set (?)
+        -------------------------------------------------------
+        """
+        for value in self._values:
+            if value is not None:
+                yield value
+
